@@ -4,6 +4,9 @@
 window.onload = () =>{
     
     let search = document.getElementById("lookup");
+    let lookup_city = document.getElementById("lookup_cities");
+    let country = this.$("#country");
+    let result = document.getElementById('result');
     
     
     search.addEventListener('click', ()=>{
@@ -19,4 +22,17 @@ window.onload = () =>{
             },
         });
     });
+
+     lookup.addEventListener('click', ()=>{
+        
+        this.$.ajax("world.php){
+            method: "GET",
+            data: country.serialize()+"&context=cities",
+            success: (data)=>{
+                result.innerHTML = data;
+
+              },
+         });
+    });
+
 };
